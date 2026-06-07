@@ -4,6 +4,7 @@ A full-stack AI companion app where you can chat with a personalized AI friend. 
 
 ## ✨ Features
 
+- 📱 Installable as a mobile/desktop app (PWA)
 - 💬 Chat with an AI friend that has a personality
 - 🎭 Choose your AI's vibe (chill, funny, supportive)
 - 🌍 Supports English and Arabic
@@ -13,7 +14,7 @@ A full-stack AI companion app where you can chat with a personalized AI friend. 
 
 ## 🛠 Tech Stack
 
-**Frontend:** React + Vite  
+**Frontend:** React + Vite (PWA)  
 **Backend:** Node.js + Express  
 **Database:** SQLite (via better-sqlite3)  
 **AI:** Groq API (Llama model)
