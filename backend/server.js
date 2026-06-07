@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 const PORT = 3002;
+const chatRoute = require("./routes/chat");
+app.use("/api/chat", chatRoute);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 })
