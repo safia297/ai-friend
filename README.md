@@ -25,10 +25,11 @@ A full-stack AI companion app where you can create and chat with your own person
 ```
 ai-friend/
 ├── backend/
-│   ├── routes/
-│   │   └── chat.js        # POST /api/chat → talks to Groq
+│   ├── routes/            # API routes (chat endpoint)
+│   ├── groq.js            # Groq AI connection
 │   ├── database.js        # SQLite setup (users, conversations, messages)
 │   ├── server.js          # Express server (port 3002)
+│   ├── ai-friend.db       # SQLite database file
 │   └── .env               # API key (not committed)
 └── frontend/
     └── src/
@@ -37,6 +38,7 @@ ai-friend/
         │   └── Chat.jsx   # Chat interface
         ├── App.jsx        # Routes
         ├── App.css        # Styling
+        ├── index.css      # Base styles
         └── main.jsx       # Entry point
 ```
 
