@@ -1,57 +1,66 @@
 # 🤖 AI Friend
 
-A full-stack AI companion app where you can chat with a personalized AI friend. Built with React, Node.js, and Groq AI.
+A full-stack AI companion app where you can create and chat with your own personalized AI friend. Give it a name, pick its personality, choose your language — then start talking. Built with React, Node.js, and Groq AI.
 
 ## ✨ Features
 
-- 📱 Installable as a mobile/desktop app (PWA)
-- 💬 Chat with an AI friend that has a personality
-- 🎭 Choose your AI's vibe (chill, funny, supportive)
-- 🌍 Supports English and Arabic
-- 🧠 AI remembers your conversation history
-- ✏️ Name your AI friend
-- 🔄 Switch vibes anytime during the chat
+- 💬 Chat in real time with an AI friend that has its own personality
+- 🎭 Choose your AI's vibe — chill, funny, or supportive
+- 🌍 Chat in English or Arabic
+- ✏️ Name your AI friend and personalize it before you start
+- 📝 Beautifully formatted replies — bold text and lists render cleanly (Markdown support)
+- 🎨 Clean dark-purple themed interface
 
 ## 🛠 Tech Stack
 
-**Frontend:** React + Vite (PWA)  
-**Backend:** Node.js + Express  
-**Database:** SQLite (via better-sqlite3)  
-**AI:** Groq API (Llama model)
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React, Vite, React Router, react-markdown |
+| **Backend** | Node.js, Express |
+| **Database** | SQLite |
+| **AI** | Groq API (Llama model) |
 
 ## 📁 Project Structure
 
 ```
 ai-friend/
-  backend/
-    routes/          (API routes)
-    database.js      (SQLite setup)
-    server.js        (Express server)
-    .env             (API keys - not uploaded)
-  frontend/
-    src/
-      pages/         (Home & Chat pages)
-      components/    (Reusable UI components)
-    App.jsx
+├── backend/
+│   ├── routes/
+│   │   └── chat.js        # POST /api/chat → talks to Groq
+│   ├── database.js        # SQLite setup (users, conversations, messages)
+│   ├── server.js          # Express server (port 3002)
+│   └── .env               # API key (not committed)
+└── frontend/
+    └── src/
+        ├── pages/
+        │   ├── Home.jsx   # Personalize your AI friend
+        │   └── Chat.jsx   # Chat interface
+        ├── App.jsx        # Routes
+        ├── App.css        # Styling
+        └── main.jsx       # Entry point
 ```
 
-## 🚀 How to Run
+## 🚀 Getting Started
 
-### Backend
+### 1. Backend
+
 ```bash
 cd backend
 npm install
 node server.js
 ```
 
-### Frontend
+The server runs on `http://localhost:3002`.
+
+### 2. Frontend
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Then open `http://localhost:5173` in your browser.
+Then open the URL Vite prints (usually `http://localhost:5173`) in your browser.
 
 ## 🔑 Environment Variables
 
@@ -61,7 +70,15 @@ Create a `.env` file in the `backend/` folder:
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
-Get your free API key at [groq.com](https://groq.com)
+Get a free API key at [groq.com](https://groq.com).
+
+## 🗺️ Roadmap
+
+Features planned for future versions:
+
+- 🧠 Persistent conversation memory (AI remembers past messages)
+- 🔄 Switch your AI's vibe mid-conversation
+- 📱 Installable as a PWA (mobile / desktop app)
 
 ---
 
