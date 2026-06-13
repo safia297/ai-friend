@@ -4,6 +4,8 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
     ai_name TEXT NOT NULL,
     vibe TEXT NOT NULL,
     language TEXT NOT NULL
@@ -21,11 +23,11 @@ db.exec(`
 db.exec(`
   CREATE TABLE IF NOT EXISTS messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    conversation_id INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
     sender TEXT NOT NULL,
     content TEXT NOT NULL,
     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (conversation_id) REFERENCES conversations(id)
+    FOREIGN KEY (user_id) REFERENCES users(id)
   )
 `);
 

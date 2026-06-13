@@ -8,11 +8,22 @@ function Chat() {
     const [input, setInput] = useState('')
     const [config, setConfig] = useState(null)
     const [loading, setLoading] = useState(false)
+    const userId = localStorage.getItem('userId')
 
     useEffect(() => {
         const saved = localStorage.getItem('aiConfig')
         if (!saved) navigate('/')
         else setConfig(JSON.parse(saved))
+
+        fetch(`/api/chat/${userId}`)
+            .then(res => res.json())
+            .then(data => {
+                const loaded = data.messages.map(m => ({
+                    role: m.sender,
+                    content: m.content
+                }))
+                setMessages(loaded)
+            })
     }, [])
 
     const sendMessage = async () => {
@@ -28,7 +39,8 @@ function Chat() {
             body: JSON.stringify({
                 message: input,
                 vibe: config.vibe,
-                language: config.language
+                language: config.language,
+                userId: userId
             })
         })
 
@@ -51,7 +63,8 @@ function Chat() {
                 {messages.map((msg, i) => (
                     <div key={i} className={`message ${msg.role}`}>
                         <span>{msg.role === 'user' ? config.userName : config.aiName}</span>
-                        <ReactMarkdown>{msg.content}</ReactMarkdown>                    </div>
+                        <ReactMarkdown>{msg.content}</ReactMarkdown>
+                    </div>
                 ))}
                 {loading && <p className="loading">typing...</p>}
             </div>

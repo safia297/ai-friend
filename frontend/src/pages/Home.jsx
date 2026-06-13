@@ -15,8 +15,15 @@ function Home() {
         navigate('/chat')
     }
 
+    const handleLogout = () => {
+        localStorage.removeItem('userId')
+        localStorage.removeItem('userName')
+        navigate('/login')
+    }
+
     return (
         <div className="home">
+            <button className="logout" onClick={handleLogout}>Log out</button>
             <h1>👋 Meet Your AI Friend</h1>
             <p>Personalize your companion before you start chatting!</p>
 
