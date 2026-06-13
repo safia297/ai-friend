@@ -26,7 +26,6 @@ A full-stack AI companion app where you can create and chat with your own person
 
 ## 📁 Project Structure
 
-\`\`\`
 ai-friend/
 ├── backend/
 │   ├── routes/
@@ -49,7 +48,6 @@ ai-friend/
         ├── App.css        # Styling
         ├── index.css      # Base styles
         └── main.jsx       # Entry point
-\`\`\`
 
 ## 🚀 Getting Started
 
