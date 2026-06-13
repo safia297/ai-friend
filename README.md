@@ -1,16 +1,89 @@
-# React + Vite
+# 🤖 AI Friend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack AI companion app where you can create and chat with your own personalized AI friend. Give it a name, pick its personality, choose your language — then start talking. Built with React, Node.js, and Groq AI.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- 💬 Chat in real time with an AI friend that has its own personality
+- 🎭 Choose your AI's vibe — chill, funny, or supportive
+- 🌍 Chat in English or Arabic
+- ✏️ Name your AI friend and personalize it before you start
+- 📝 Beautifully formatted replies — bold text and lists render cleanly (Markdown support)
+- 🎨 Clean dark-purple themed interface
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React, Vite, React Router, react-markdown |
+| **Backend** | Node.js, Express |
+| **Database** | SQLite |
+| **AI** | Groq API (Llama model) |
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+ai-friend/
+├── backend/
+│   ├── routes/            # API routes (chat endpoint)
+│   ├── groq.js            # Groq AI connection
+│   ├── database.js        # SQLite setup (users, conversations, messages)
+│   ├── server.js          # Express server (port 3002)
+│   ├── ai-friend.db       # SQLite database file
+│   └── .env               # API key (not committed)
+└── frontend/
+    └── src/
+        ├── pages/
+        │   ├── Home.jsx   # Personalize your AI friend
+        │   └── Chat.jsx   # Chat interface
+        ├── App.jsx        # Routes
+        ├── App.css        # Styling
+        ├── index.css      # Base styles
+        └── main.jsx       # Entry point
+```
+
+## 🚀 Getting Started
+
+### 1. Backend
+
+```bash
+cd backend
+npm install
+node server.js
+```
+
+The server runs on `http://localhost:3002`.
+
+### 2. Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Then open the URL Vite prints (usually `http://localhost:5173`) in your browser.
+
+## 🔑 Environment Variables
+
+Create a `.env` file in the `backend/` folder:
+
+```
+GROQ_API_KEY=your_groq_api_key_here
+```
+
+Get a free API key at [groq.com](https://groq.com).
+
+## 🗺️ Roadmap
+
+Features planned for future versions:
+
+- 🧠 Persistent conversation memory (AI remembers past messages)
+- 🔄 Switch your AI's vibe mid-conversation
+- 📱 Installable as a PWA (mobile / desktop app)
+
+---
+
+<div align="center">
+Built by <a href="https://github.com/safia297">Safia Moallim</a> 🚀
+</div>
