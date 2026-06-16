@@ -26,7 +26,7 @@ A full-stack AI companion app where you can create and chat with your own person
 
 ## 📁 Project Structure
 
-\`\`\`
+```
 ai-friend/
 ├── backend/
 │   ├── routes/
@@ -49,37 +49,37 @@ ai-friend/
         ├── App.css        # Styling
         ├── index.css      # Base styles
         └── main.jsx       # Entry point
-\`\`\`
+```
 
 ## 🚀 Getting Started
 
 ### 1. Backend
 
-\`\`\`bash
+```bash
 cd backend
 npm install
 node server.js
-\`\`\`
+```
 
-The server runs on \`http://localhost:3002\`.
+The server runs on `http://localhost:3002`.
 
 ### 2. Frontend
 
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
-Then open the URL Vite prints (usually \`http://localhost:5173\`) in your browser.
+Then open the URL Vite prints (usually `http://localhost:5173`) in your browser.
 
 ## 🔑 Environment Variables
 
-Create a \`.env\` file in the \`backend/\` folder:
+Create a `.env` file in the `backend/` folder:
 
-\`\`\`
+```
 GROQ_API_KEY=your_groq_api_key_here
-\`\`\`
+```
 
 Get a free API key at [groq.com](https://groq.com).
 
