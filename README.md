@@ -1,11 +1,13 @@
 # 🤖 AI Friend
 
-A full-stack AI companion app where you can create and chat with your own personalized AI friend. Sign up, give your AI a name, pick its personality, choose your language — then start talking. Your conversations are saved privately to your account. Built with React, Node.js, and Groq AI.
+A full-stack AI companion app where you can create and chat with your own personalized AI friend. Sign up, give your AI a name, pick its personality, choose your language — then start talking. Your conversations are saved privately to your account. Built with React, Node.js, PostgreSQL, and Groq AI.
 
 ## ✨ Features
 
 - 🔐 User accounts — secure signup & login with hashed passwords
 - 🔒 Protected routes — your chats are private to your account
+- 🗂️ Multiple conversations — start, switch between, rename, and delete separate chats
+- 🏷️ Auto-named chats — conversations are titled from your first message
 - 💾 Persistent chat history — your conversations are saved and reloaded every time you return
 - 💬 Chat in real time with an AI friend that has its own personality
 - 🎭 Choose your AI's vibe — chill, funny, or supportive
@@ -20,7 +22,7 @@ A full-stack AI companion app where you can create and chat with your own person
 |-------|-----------|
 | **Frontend** | React, Vite, React Router, react-markdown |
 | **Backend** | Node.js, Express |
-| **Database** | SQLite |
+| **Database** | PostgreSQL (pg) |
 | **Auth** | bcrypt (password hashing) |
 | **AI** | Groq API (Llama model) |
 
@@ -31,16 +33,16 @@ ai-friend/
 ├── backend/
 │   ├── routes/
 │   │   ├── auth.js        # Signup & login routes
-│   │   └── chat.js        # Chat + save/load messages
+│   │   └── chat.js        # Conversations + chat messages
 │   ├── groq.js            # Groq AI connection
-│   ├── database.js        # SQLite setup (users, conversations, messages)
+│   ├── database.js        # PostgreSQL setup (users, conversations, messages)
 │   ├── server.js          # Express server (port 3002)
-│   └── .env               # API key (not committed)
+│   └── .env               # API key + database URL (not committed)
 └── frontend/
     └── src/
         ├── pages/
         │   ├── Home.jsx       # Personalize your AI friend
-        │   ├── Chat.jsx       # Chat interface
+        │   ├── Chat.jsx       # Chat interface + conversation sidebar
         │   ├── Login.jsx      # Login page
         │   └── Signup.jsx     # Signup page
         ├── components/
@@ -79,16 +81,16 @@ Create a `.env` file in the `backend/` folder:
 
 ```
 GROQ_API_KEY=your_groq_api_key_here
+DATABASE_URL=your_postgresql_connection_string
 ```
 
-Get a free API key at [groq.com](https://groq.com).
+Get a free Groq API key at [groq.com](https://groq.com). For the database, you can create a free PostgreSQL instance on [Render](https://render.com).
 
 ## 🗺️ Roadmap
 
 Features planned for future versions:
 
 - 🔄 Switch your AI's vibe mid-conversation
-- 🗂️ Multiple separate conversations per user
 - 🔵 Google sign-in
 - 📱 Installable as a PWA (mobile / desktop app)
 
